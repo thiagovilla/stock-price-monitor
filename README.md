@@ -35,6 +35,12 @@ Alert service - checks current prices and sends buy/sell alerts
 - Add other stock exchanges (e.g. NASDAQ, JPX etc.) 
 - Send push notifications
 
+## Notes
+
+- It'd be really cool if this was a [12-factor app](https://12factor.net/)
+- The most critical points (so far) is finding a stock prices public API
+- It clearly involves running periodic jobs - will it require CRON? Hope not :D
+
 To do:
 
 - Creative process
