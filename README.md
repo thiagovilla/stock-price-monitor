@@ -20,7 +20,7 @@ Sends an email every time a tracked stock's price crosses the lower (buy) or upp
 
 - Python 3.7
 - Django 3.1
-- <abbr title="Server-Side Rendering">SSR</abbr> web app - at least initially?
+- SSR web app - initally, then SPA + DRF web service
 
 ## Architecture
 
@@ -29,6 +29,16 @@ Price service - fetches stock prices every X rate
 Alert service - checks current prices and sends buy/sell alerts
 
 #todo and the web app?
+
+## Creative Process
+
+Expand these topics:
+
+- 1st watched [this](https://www.youtube.com/playlist?list=PL-51WBLyFTg2vW-_6XBoUpE7vpmoR3ztO) Django crash course and read through MDN's Django [guides](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django)
+- Then considered SSR web app w/ Django or SPA + web service w/ Django REST Framework - pros and cons
+- Decided for web app w/ Django for MVP and then move to SPA + web service to showcase skills
+- Data entry (price fetch) most critical component at this point - find API else web scraper
+- Also considering a time series DB for the stock prices - classic application of TSDBs 
 
 ## Roadmap
 
