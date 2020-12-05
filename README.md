@@ -30,20 +30,23 @@ Alert service - checks current prices and sends buy/sell alerts
 
 #todo and the web app?
 
-## Creative Process
-
-Expand these topics:
-
-- 1st watched [this](https://www.youtube.com/playlist?list=PL-51WBLyFTg2vW-_6XBoUpE7vpmoR3ztO) Django crash course and read through MDN's Django [guides](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django)
-- Then considered SSR web app w/ Django or SPA + web service w/ Django REST Framework - pros and cons
-- Decided for web app w/ Django for MVP and then move to SPA + web service to showcase skills
-- Data entry (price fetch) most critical component at this point - find API else web scraper
-- Also considering a time series DB for the stock prices - classic application of TSDBs 
-
 ## Roadmap
 
 - Add other stock exchanges (e.g. NASDAQ, JPX etc.) 
 - Send push notifications
+
+## Creative Process
+
+### Version `0.1.0`
+
+I first watched [this crash course](https://www.youtube.com/playlist?list=PL-51WBLyFTg2vW-_6XBoUpE7vpmoR3ztO) on YouTube and read [this guide](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django) on MDN to get a hang of Django. How do I code in Python/Django what I already do in Node/Express?
+
+#todo expand these topics:
+
+- Then considered SSR web app w/ Django or SPA + web service w/ Django REST Framework - pros and cons
+- Decided for web app w/ Django for MVP and then move to SPA + web service to showcase skills
+- Data entry (price fetch) most critical component at this point - find API else web scraper
+- Also considering a time series DB for the stock prices - classic application of TSDBs 
 
 ## Notes
 
