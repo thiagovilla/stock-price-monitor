@@ -42,7 +42,9 @@ Alert service - checks current prices and sends buy/sell alerts
 
 I first watched [this crash course](https://www.youtube.com/playlist?list=PL-51WBLyFTg2vW-_6XBoUpE7vpmoR3ztO) on YouTube and read [this guide](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django) on MDN to get a hang of Django. I needed to learn how to code in Python/Django what I already did in Node/Express: routes, models, views, controllers, authentication, authorization (permissions) etc. Additionally, I also wanted to know how to schedule jobs and send email for the price monitor and buy/sell alert services respectively.
 
-Next I considered whether to develop the app as a traditional server-side rendered (SSR) web app (serves HTML) in Django or a modern [JAM stack](jamstack.org) single-page application (SPA) coupled with a web *service* (serves data) in Django REST Framework (DRF). Although I would personally go in production with the latter for [obvious reasons](jamstack.org/why-jamstack), I ultimately chose the former for this MVP to __focus on business logic__. (I did add the SPA/DRF version to the roadmap, though.) Either way, the app should follow the [twelve-factor](12factor.net/) methodology.
+Next I considered whether to develop the app as a traditional server-side rendered (SSR) web app that serves HTML (built in Django) or a modern [JAM stack](jamstack.org) single-page application (SPA) coupled with a web service that serves *data* (built in Django REST Framework). While the latter is more [cloud-compatible](jamstack.org/why-jamstack), the former is (I believe) **faster to iterate** `⤨`. (I did add the SPA/DRF version to the roadmap, though.) Either way, I chose to follow the [twelve-factor](12factor.net/) methodology.
+
+Legend: `⤨` marks a decision.
 
 #todo expand these topics:
 
