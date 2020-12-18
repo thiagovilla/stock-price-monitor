@@ -1,6 +1,6 @@
 from django.db import models
 
-class Assets(models.Model):
+class Asset(models.Model):
     """A tracked asset with lower and upper price limits"""
     name = models.CharField(max_length=200)
     lower_limit = models.FloatField()
