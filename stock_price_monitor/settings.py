@@ -122,4 +122,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
 HG_API_KEY = os.environ.get('HG_API_KEY', '2fa589ea')
