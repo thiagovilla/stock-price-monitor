@@ -4,6 +4,10 @@
 
 #todo
 
+## Version `0.1.1`
+
+Added basic error handling to `/assets/<symbol>`: request error (not 200 OK), invalid symbol and symbol not found. Also ran `autopep8`.
+
 ## Version `0.1.0`
 
 `/assets/<symbol>` returns asset `<symbol>`'s (e.g. PETR3) current price - no template yet, just testing the API.
