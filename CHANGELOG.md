@@ -1,8 +1,10 @@
 # Changelog
 
-## Before version `0.0.1`
+## Version `0.2.1`
 
-#todo
+Installed dependencies and set up settings to use Postgres as the default database and serve static files directly from Gunicorn in production.
+
+This was needed to test `updateprices` and `sendalerts` on the Heroku deploy. Note: I'm violating [factor X - dev/prod parity](https://12factor.net/dev-prod-parity) by using SQLite in development and Postgres in production - will fix that soon with Docker #todo.
 
 ## Version `0.2.0`
 
@@ -24,4 +26,8 @@ It calls HG Brasil Finance API's [stock prices endpoint](https://hgbrasil.com/ap
 
 The API key is stored in an environment variable as per the 12-factor app methodology's [factor III - config](https://12factor.net/config). I'm using different keys for development and the deploy on Heroku.
 
-Only the "happy path" is implemented so far - no request or response error treament yet - implemented in [`0.1.1`](#version011); the API has no timeout or throttling yet either #todo. No tests yet #todo.
+Only the "happy path" is implemented so far - no request or response error treament yet - implemented in [`0.1.1`](#version-011); the API has no timeout or throttling yet either #todo. No tests yet #todo.
+
+## Before version `0.0.1`
+
+#todo
