@@ -124,4 +124,10 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
+# Email
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# Other
+
 HG_API_KEY = os.environ.get('HG_API_KEY', '2fa589ea')
