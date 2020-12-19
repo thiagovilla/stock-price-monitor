@@ -8,9 +8,9 @@
 
 Added Django custom commands `updateprices` and `sendalerts`. Added `current_price` attribute to Asset model.
 
-The `updateprices` command calls the stock prices API and updates the current price for each tracked asset. Duplicate assets are updated twice - not good #todo.
+The `updateprices` command calls the stock prices API and updates the current price for each tracked asset. Duplicate assets are updated twice - group or unlink "asset" and "tracked asset" models (1:n relationship) #todo.
 
-The `sendalerts` command iterate through each tracked asset and either skips it if its price is within the lower (buy) and upper (sell) limits or send a buy/sell email. The current console email backend is meant for development only. Also, it is necessary to link the tracked asset and user models in order to get their email address #todo.
+The `sendalerts` command iterate through each tracked asset and either skips it if its price is within the lower (buy) and upper (sell) limits or sends a buy/sell email. The current console email backend is meant for development only - load config from env var #todo. Also, it is necessary to link the tracked asset and user models in order to get their email address #todo.
 
 ## Version `0.1.1`
 
@@ -24,4 +24,4 @@ It calls HG Brasil Finance API's [stock prices endpoint](https://hgbrasil.com/ap
 
 The API key is stored in an environment variable as per the 12-factor app methodology's [factor III - config](https://12factor.net/config). I'm using different keys for development and the deploy on Heroku.
 
-Only the "happy path" is implemented so far - no request or response error treament yet (implemented in `0.1.1`); the API has no timeout or throttling yet either #todo. No tests yet #todo.
+Only the "happy path" is implemented so far - no request or response error treament yet - implemented in [`0.1.1`](#version011); the API has no timeout or throttling yet either #todo. No tests yet #todo.
