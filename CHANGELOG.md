@@ -1,5 +1,13 @@
 # Changelog
 
+## Version `0.3.0`
+
+Created a [Redis Queue](https://python-rq.org/) worker to process `updateprices` and `sendalerts` as background jobs - #todo.
+
+Created an `updateprices` job that loads Django's ORM from an external script with [`django.setup()`](https://docs.djangoproject.com/en/3.1/ref/applications/#django.setup) - inspired by [this post](https://stackoverflow.com/a/58780891/7441775) on Stack Overflow.
+
+Created a temporary custom command `updateprices2` to enqueue the `updateprices` job, which will run in a separate worker process - remove it soon #todo.
+
 ## Version `0.2.1`
 
 Installed dependencies and set up settings to use Postgres as the default database and serve static files directly from Gunicorn in production.
