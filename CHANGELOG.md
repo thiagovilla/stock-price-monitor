@@ -1,5 +1,11 @@
 # Changelog
 
+## Version `0.3.1`
+
+Refactored out the `lower_limit` and `upper_limit` fields from the old `Asset` model into a new `TrackedAsset` model. `Asset` and `TrackedAsset` have a 1:N relationship. Also added a new `last_modified` field to the _new_ `Asset` model.
+
+Updated the `sendalerts` job accordingly. Now each asset is updated only once, solving an issue from [`0.2.0`](#version-020).
+
 ## Version `0.3.0`
 
 Created a [Redis Queue](https://python-rq.org/) worker to process `updateprices` and `sendalerts` as background jobs - #todo.
@@ -18,7 +24,7 @@ This was needed to test `updateprices` and `sendalerts` on the Heroku deploy. No
 
 Added Django custom commands `updateprices` and `sendalerts`. Added `current_price` attribute to Asset model.
 
-The `updateprices` command calls the stock prices API and updates the current price for each tracked asset. Duplicate assets are updated twice - group or unlink "asset" and "tracked asset" models (1:n relationship) #todo.
+The `updateprices` command calls the stock prices API and updates the current price for each asset. ~Duplicate assets are updated twice - group or unlink "asset" and "tracked asset" models (1:N relationship)~ fixed/implemented in [`0.3.1`](#version-031).
 
 The `sendalerts` command iterate through each tracked asset and either skips it if its price is within the lower (buy) and upper (sell) limits or sends a buy/sell email. The current console email backend is meant for development only - load config from env var #todo. Also, it is necessary to link the tracked asset and user models in order to get their email address #todo.
 
