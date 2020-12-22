@@ -1,8 +1,8 @@
 # Changelog
 
-## Version `0.3.2
+## Version `0.3.2`
 
-Updated the `clock` process to read the `update_prices` job interval from `UPDATE_PRICES_INTERVAL` or default to `P0DT1H` (one hour). This is an improvement from the previous fixed interval; the requirement, however, is to read it from a user-defined value - #todo.
+Updated the `clock` process to read the `update_prices` job interval from the `UPDATE_PRICES_INTERVAL` environment variable or default to `P0DT1H` (one hour). This is an improvement from the previous fixed interval, but it must become a user-defined value soon - #todo.
 
 ## Version `0.3.1`
 
