@@ -2,7 +2,33 @@
 
 Monitors stock prices and sends a buy/sell warning when its price crosses a configurable lower/upper threshold.
 
-⚠️ *Warning*: this is a portfolio project and therefore has limited features.
+⚠️ _Warning_: this is a portfolio project and therefore has limited features.
+
+# Install
+
+To install the app locally, clone this repository, create a new virtual environment and run `pip install`:
+
+```shell
+git clone https://github.com/thiagovilla/stock-price-monitor.git
+cd stock-price-monitor
+mkvirtualenv my-new-env
+workon my-new-env
+pip install -r requirements.txt
+```
+
+To use the stock prices API, get a [free API key from HG Brasil](https://console.hgbrasil.com/keys/new) and put it in the `HG_API_KEY` environment variable:
+
+```shell
+HG_API_KEY=xxx python manage.py runserver
+```
+
+To run the `worker` process, make sure to set up `DJANGO_SETTINGS_MODULE` to `stock_price_monitor.settings`:
+
+```shell
+DJANGO_SETTINGS_MODULE=stock_price_monitor.settings python worker.py
+```
+
+#todo set up env vars in docker-compose.yml
 
 ## Goal
 
@@ -32,7 +58,7 @@ Alert service - checks current prices and sends buy/sell alerts
 
 ## Roadmap
 
-- Add other stock exchanges (e.g. NASDAQ, JPX etc.) 
+- Add other stock exchanges (e.g. NASDAQ, JPX etc.)
 - Send push notifications
 - SPA/DRF/PWA?
 
@@ -44,12 +70,12 @@ Legend: ⤨ denotes a choice.
 
 I first watched [this crash course](https://www.youtube.com/playlist?list=PL-51WBLyFTg2vW-_6XBoUpE7vpmoR3ztO) on YouTube and read [this guide](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django) on MDN to get a hang of Django. I needed to learn how to code in Python/Django what I already did in Node/Express: routes, models, views, controllers, access control etc. Additionally, I also wanted to know how to schedule jobs and send email for the price monitor and buy/sell alert services respectively.
 
-Next I considered whether to develop the app as a traditional server-side rendered (SSR) web app that serves HTML (built in Django) or a modern [JAM stack](https://jamstack.org) single-page application (SPA) coupled with a web service that serves *data* (built in Django REST Framework). While the latter [scales better](https://jamstack.org/why-jamstack), the former is **easier to iterate** ⤨. (I did add the SPA/DRF version to the roadmap, though.) Either way, I chose to follow the [twelve-factor](https://12factor.net) methodology.
+Next I considered whether to develop the app as a traditional server-side rendered (SSR) web app that serves HTML (built in Django) or a modern [JAM stack](https://jamstack.org) single-page application (SPA) coupled with a web service that serves _data_ (built in Django REST Framework). While the latter [scales better](https://jamstack.org/why-jamstack), the former is **easier to iterate** ⤨. (I did add the SPA/DRF version to the roadmap, though.) Either way, I chose to follow the [twelve-factor](https://12factor.net) methodology.
 
 #todo expand these topics:
 
 - Data entry (price fetch) most critical component at this point - find API else web scraper
-- Also considering a time series DB for the stock prices - classic application of TSDBs 
+- Also considering a time series DB for the stock prices - classic application of TSDBs
 
 ### Version `0.1.0`
 
