@@ -1,15 +1,25 @@
-from apscheduler.schedulers.blocking import BlockingScheduler
+import os
 from datetime import datetime, timedelta
+
+from apscheduler.schedulers.blocking import BlockingScheduler
+from django.utils.dateparse import parse_duration
+from rq import Queue
+
+from worker import conn
+from assets.jobs import update_prices
 
 scheduler = BlockingScheduler()
 
-@scheduler.scheduled_job('interval', seconds=2, id='my_job')
-def my_job():
-    print('This job runs every other second')
+seconds = parse_duration(
+    os.getenv('UPDATE_PRICES_INTERVAL', 'P0DT1H')).total_seconds()
 
-@scheduler.scheduled_job('date', run_date=datetime.now() + timedelta(seconds=10))
-def reschedule_my_job():
-    print('Reschedule job to every 5 seconds')
-    scheduler.reschedule_job('my_job', trigger='interval', seconds=5)
+q = Queue(connection=conn)
+
+
+@scheduler.scheduled_job('interval', seconds=seconds, id='update_prices_job')
+def update_prices_job():
+    q.enqueue(update_prices)
+    print('update_prices job sent to worker queue')
+
 
 scheduler.start()

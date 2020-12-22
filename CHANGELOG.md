@@ -1,18 +1,22 @@
 # Changelog
 
+## Version `0.3.2
+
+Updated the `clock` process to read the `update_prices` job interval from `UPDATE_PRICES_INTERVAL` or default to `P0DT1H` (one hour). This is an improvement from the previous fixed interval; the requirement, however, is to read it from a user-defined value - #todo.
+
 ## Version `0.3.1`
 
 Refactored out the `lower_limit` and `upper_limit` fields from the old `Asset` model into a new `TrackedAsset` model. `Asset` and `TrackedAsset` have a 1:N relationship. Also added a new `last_modified` field to the _new_ `Asset` model.
 
-Updated the `sendalerts` job accordingly. Now each asset is updated only once, solving an issue from [`0.2.0`](#version-020).
+Updated the `sendalerts` custom command accordingly. Now each asset is updated only once, solving an issue from [`0.2.0`](#version-020).
 
 ## Version `0.3.0`
 
-Created a [Redis Queue](https://python-rq.org/) worker to process `updateprices` and `sendalerts` as background jobs - #todo.
+Created a [Redis Queue](https://python-rq.org/) worker to process the `updateprices` and `sendalerts` custom commands as background jobs - partially implemented in [`0.3.2`](#version-032).
 
-Created an `updateprices` job that loads Django's ORM from an external script with [`django.setup()`](https://docs.djangoproject.com/en/3.1/ref/applications/#django.setup) - inspired by [this post](https://stackoverflow.com/a/58780891/7441775) on Stack Overflow.
+Created an `update_prices` job that loads Django's ORM from an external script with [`django.setup()`](https://docs.djangoproject.com/en/3.1/ref/applications/#django.setup) - inspired by [this post](https://stackoverflow.com/a/58780891/7441775) on Stack Overflow.
 
-Created a temporary custom command `updateprices2` to enqueue the `updateprices` job, which will run in a separate worker process - remove it soon #todo.
+~Created a _temporary_ custom command `updateprices2` to enqueue the `update_prices` job, which will run in a separate worker process~ removed in [`0.3.2`](#version-032).
 
 ## Version `0.2.1`
 
